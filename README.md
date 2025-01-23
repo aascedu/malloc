@@ -6,6 +6,6 @@ Sous Linux :
   `make`
 
 Sous Docker :
-  `./launch.sh`
-  
-  `make`
+
+-  `./launch.sh` 
+-  `make`
