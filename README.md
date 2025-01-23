@@ -4,6 +4,7 @@ Que se cache derriere malloc ? Vous l'utilisez depuis la piscine C, mais ce n'es
 ## Comment compiler la lib ?
 Sous Linux :
   `make`
+
 Sous Docker :
   `./launch.sh`
   `make`
