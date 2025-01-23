@@ -7,4 +7,5 @@ Sous Linux :
 
 Sous Docker :
   `./launch.sh`
+  
   `make`
