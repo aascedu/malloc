@@ -1,8 +1,6 @@
-int	ft_strlen(char *str)
-{
-	int i = 0;
+#include libft_malloc.h
 
-	while (str[i])
-		i++;
-	return i;
+void    *malloc(size_t size)
+{
+
 }

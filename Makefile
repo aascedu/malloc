@@ -2,16 +2,17 @@ ifeq ($(HOSTTYPE),)
 	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
 endif
 
+NAME =		$(LIB_DIR)libft_malloc_$(HOSTTYPE).so
+LIBNAME =	$(LIB_DIR)libft_malloc.so
 INC_DIR =	inc/
 SRC_DIR =	src/
 LIB_DIR =	lib/
-NAME =		$(LIB_DIR)libft_malloc_$(HOSTTYPE).so
 OBJ_DIR =	.obj/
 
 CC =		cc
 CFLAGS =	-Wall -Werror -Wextra -shared -I$(INC_DIR) -fPIC
-SRCS =		malloc.c
 
+SRCS =		malloc.c
 OBJS =		$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all: dir
@@ -19,6 +20,7 @@ all: dir
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	ln -sf $(NAME) $(LIBNAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
