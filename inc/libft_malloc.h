@@ -4,8 +4,6 @@
 # include <sys/mman.h>
 # include <unistd.h>
 
-# define MAP_FAILED (void *)-1
-
-void    *malloc(site_t size);
+void    *malloc(size_t size);
 
 #endif
