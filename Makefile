@@ -3,6 +3,7 @@ ifeq ($(HOSTTYPE),)
 endif
 
 NAME =		$(LIB_DIR)libft_malloc_$(HOSTTYPE).so
+NAME_NO_PATH =	libft_malloc_$(HOSTTYPE).so
 LIBNAME =	$(LIB_DIR)libft_malloc.so
 INC_DIR =	inc/
 SRC_DIR =	src/
@@ -20,7 +21,7 @@ all: dir
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
-	ln -sf $(NAME) $(LIBNAME)
+	ln -sf $(NAME_NO_PATH) $(LIBNAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
