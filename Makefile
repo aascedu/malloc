@@ -11,7 +11,7 @@ LIB_DIR =	lib/
 OBJ_DIR =	.obj/
 
 CC =		cc
-CFLAGS =	-Wall -Werror -Wextra  -I$(INC_DIR) -pedantic
+CFLAGS =	-Wall -Werror -Wextra -g3  -I$(INC_DIR) -pedantic
 
 SRCS =		malloc.c
 OBJS =		$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
