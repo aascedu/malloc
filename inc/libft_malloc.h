@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-void    *malloc(size_t size);
+int ft_malloc(size_t size);
 
 # define TINY_HEAP_SIZE (4 * sysconf(_SC_PAGESIZE))
 # define TINY_SIZE (TINY_HEAP_SIZE / 64)
