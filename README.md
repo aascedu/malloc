@@ -8,4 +8,9 @@ Sous Linux :
 Sous Docker :
 
 -  `./launch.sh` 
--  `make`
+-  `make -j` pour compiler la lib uniquement, `make -j test` pour compiler un programme de test.
+
+Pour utiliser gdb :
+
+- `gdb ./test`
+- `set environment LD_PRELOAD lib/libft_malloc.so`
