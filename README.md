@@ -1,16 +1,16 @@
 # malloc
 Slab Allocator using mmap and munmap system calls.
 
-## Comment compiler la lib ?
-Sous Linux :
+## How to compile ?
+On Linux :
   `make`
 
-Sous Docker :
+With Docker :
 
 -  `./launch.sh` 
--  `make -j` pour compiler la lib uniquement, `make -j test` pour compiler un programme de test.
+-  `make -j` to compile only the lib, `make -j test` to compile a test program in addition.
 
-Pour utiliser gdb :
+To use gdb :
 
 - `gdb ./test`
 - `set environment LD_PRELOAD lib/libft_malloc.so`
