@@ -2,6 +2,8 @@
 
 int main(void)
 {
-    void *m = ft_malloc(1);
+    void *m = malloc(1);
+    if (m == NULL)
+        return 1;
     return 0;
 }

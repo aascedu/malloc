@@ -6,4 +6,6 @@ WORKDIR /workdir
 
 COPY    . .
 
+ENV     LD_LIBRARY_PATH=/workdir/lib
+
 CMD ["make"]

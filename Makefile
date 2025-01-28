@@ -11,7 +11,7 @@ LIB_DIR =	lib/
 OBJ_DIR =	.obj/
 
 CC =		cc
-CFLAGS =	-Wall -Werror -Wextra -shared -I$(INC_DIR) -fPIC
+CFLAGS =	-Wall -Werror -Wextra  -I$(INC_DIR) -pedantic
 
 SRCS =		malloc.c
 OBJS =		$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
@@ -20,21 +20,24 @@ all: dir
 	$(MAKE) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -shared -fPIC -o $@ $(OBJS)
 	ln -sf $(NAME_NO_PATH) $(LIBNAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 dir:
 	mkdir -p $(OBJ_DIR)
 	mkdir -p $(LIB_DIR)
 
+test: all
+	$(CC) $(CFLAGS) -g3 -o test main.c -L$(LIB_DIR) -lft_malloc
+
 clean:
 	rm -rf .obj
 
 fclean: clean
-	rm -rf lib
+	rm -rf lib test core
 
 re: fclean
 	$(MAKE) all

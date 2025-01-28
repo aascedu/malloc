@@ -1,13 +1,12 @@
 #include "libft_malloc.h"
-#include <stdio.h>
 
-void    *ft_malloc(size_t size)
+void    *malloc(size_t size)
 {
     (void)size;
-    long int pagesize;
+    long int tiny_size;
 
-    pagesize = PAGESIZE;
-    // (void)pagesize;
+    tiny_size = TINY_SIZE;
+    (void)tiny_size;
 
     return NULL;
 }
