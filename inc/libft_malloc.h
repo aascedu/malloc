@@ -5,15 +5,13 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-int ft_malloc(size_t size);
-
-# define TINY_HEAP_SIZE (4 * sysconf(_SC_PAGESIZE))
-# define TINY_SIZE (TINY_HEAP_SIZE / 64)
-# define SMALL_HEAP_SIZE (16 * sysconf(_SC_PAGESIZE))
-# define SMALL_SIZE (SMALL_HEAP_SIZE / 128)
+void    *ft_malloc(size_t size);
+int     ft_strlen(char *str);
+void	ft_putstr_fd(char *s, int fd);
+void	*ft_memset(void *s, int c, size_t len);
 
 typedef struct s_heap t_heap;
-typedef struct s_pages t_pages;
+typedef struct s_zone t_zone;
 typedef struct s_block t_block;
 
 struct s_block {
@@ -23,17 +21,23 @@ struct s_block {
     bool    free;
 };
 
-struct s_pages {
-    t_pages *prev;
-    t_pages *next;
-    size_t  page_size;
+struct s_zone {
+    t_zone *prev;
+    t_zone *next;
+    size_t  size_total;
+    size_t  size_available;
     t_block *blocks;
 };
 
 struct s_heap {
-    t_pages *tiny_pages;
-    t_pages *small_pages;
-    t_pages *large_pages;
+    t_zone *tiny_zones;
+    t_zone *small_zones;
+    t_zone *large_zones;
 };
+
+# define TINY_HEAP_SIZE (4 * sysconf(_SC_PAGESIZE))
+# define TINY_SIZE (TINY_HEAP_SIZE / 128)
+# define SMALL_HEAP_SIZE (16 * sysconf(_SC_PAGESIZE))
+# define SMALL_SIZE (SMALL_HEAP_SIZE / 128)
 
 #endif

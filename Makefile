@@ -13,7 +13,7 @@ OBJ_DIR =	.obj/
 CC =		cc
 CFLAGS =	-Wall -Werror -Wextra -g3  -I$(INC_DIR) -pedantic
 
-SRCS =		malloc.c
+SRCS =		malloc.c utils.c
 OBJS =		$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all: dir
@@ -24,7 +24,7 @@ $(NAME): $(OBJS)
 	ln -sf $(NAME_NO_PATH) $(LIBNAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -fPIC -c $< -o $@
 
 dir:
 	mkdir -p $(OBJ_DIR)

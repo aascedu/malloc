@@ -2,6 +2,7 @@
 
 int main(void)
 {
-    int m = ft_malloc(1);
-    return m;
+    void *m = ft_malloc(1);
+    (void)m;
+    return 0;
 }
