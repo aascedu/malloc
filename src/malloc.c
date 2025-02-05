@@ -13,10 +13,14 @@ t_zone  *get_page(size_t size)
 
 void    *ft_malloc(size_t size)
 {
-    t_zone *page = NULL;
-
+    t_zone 	*page = NULL;
+    t_block	*block = NULL;
     page = get_page(size);
     if (page == NULL)
         return NULL;
+    // Start working on this block = get_block(size);
+    // if (block == NULL)
+    //		return NULL;
+    //	return block; // block is the addr of the beginning of the block
     return page;
 }
