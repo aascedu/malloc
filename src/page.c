@@ -27,9 +27,11 @@ t_zone *find_available_page(size_t size, t_zone **zones)
         ft_putstr_fd("mmap() returned MAP_FAILED\n", 2);
         return NULL;
     }
+    int test = alignof(t_zone);
+    (void)test;
+    ft_memset(new_zone, 0, sizeof(t_zone));
     new_zone->size_total = size;
     new_zone->size_available = size - sizeof(t_zone);
-    ft_memset(new_zone, 0, sizeof(t_zone));
     add_page_to_global(size, new_zone, *zones);
     return new_zone;
 }

@@ -4,6 +4,7 @@
 # include <sys/mman.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <stdalign.h>
 
 void    *ft_malloc(size_t size);
 
