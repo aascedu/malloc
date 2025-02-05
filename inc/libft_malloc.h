@@ -6,6 +6,7 @@
 # include <stdbool.h>
 
 void    *ft_malloc(size_t size);
+
 int     ft_strlen(char *str);
 void	ft_putstr_fd(char *s, int fd);
 void	*ft_memset(void *s, int c, size_t len);
@@ -13,6 +14,11 @@ void	*ft_memset(void *s, int c, size_t len);
 typedef struct s_heap t_heap;
 typedef struct s_zone t_zone;
 typedef struct s_block t_block;
+
+// page.c
+void	add_page_to_global(size_t size, t_zone *new_zone, t_zone *zone);
+t_zone	*find_available_page(size_t size, t_zone **zones);
+t_zone	*get_large_page(size_t size);
 
 struct s_block {
     t_block *prev;

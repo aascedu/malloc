@@ -2,3 +2,5 @@
 Dockerfile
 *.md
 .gitignore
+core
+test
