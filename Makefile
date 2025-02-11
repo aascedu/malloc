@@ -13,7 +13,7 @@ OBJ_DIR =	.obj/
 CC =		cc
 CFLAGS =	-Wall -Werror -Wextra -g3  -I$(INC_DIR) -pedantic
 
-SRCS =		malloc.c utils.c page.c
+SRCS =		malloc.c utils.c page.c block.c
 OBJS =		$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all: dir

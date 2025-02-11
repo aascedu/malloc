@@ -21,6 +21,9 @@ void	add_page_to_global(size_t size, t_zone *new_zone, t_zone *zone);
 t_zone	*find_available_page(size_t size, t_zone **zones);
 t_zone	*get_large_page(size_t size);
 
+// block.c
+t_block	*find_available_block(size_t size, t_zone *page);
+
 struct s_block {
     t_block *prev;
     t_block *next;
@@ -43,7 +46,7 @@ struct s_heap {
 };
 
 # define TINY_HEAP_SIZE (4 * sysconf(_SC_PAGESIZE))
-# define TINY_SIZE (TINY_HEAP_SIZE / 128)
+# define TINY_SIZE ((TINY_HEAP_SIZE / 128) - sizeof(t_block))
 # define SMALL_HEAP_SIZE (16 * sysconf(_SC_PAGESIZE))
 # define SMALL_SIZE (SMALL_HEAP_SIZE / 128)
 
